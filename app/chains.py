@@ -8,7 +8,7 @@ import streamlit as st
 load_dotenv()
 
 #os.getenv("GROQ_API_KEY")
-API_KEY = st.secrets("Your_API_KEY")
+API_KEY = st.secrets["Your_API_KEY"]
 class Chain:
     def __init__(self):
         self.llm = ChatGroq(temperature=0, groq_api_key= API_KEY, model="llama-3.3-70b-versatile")
