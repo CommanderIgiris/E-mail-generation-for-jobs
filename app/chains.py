@@ -7,12 +7,11 @@ from dotenv import load_dotenv
 import streamlit as st
 load_dotenv()
 
-#os.getenv("GROQ_API_KEY")
-API_KEY = "your_api_key"
+os.getenv("GROQ_API_KEY")
+
 class Chain:
     def __init__(self):
-        self.llm = ChatGroq(temperature=0, groq_api_key= API_KEY, model="llama-3.3-70b-versatile")
-        #self.llm = ChatGroq(temperature=0,groq_api_key=os.getenv("GROQ_API_KEY"),model="llama-3.3-70b-versatile")
+        self.llm = ChatGroq(temperature=0,groq_api_key=os.getenv("GROQ_API_KEY"),model="llama-3.3-70b-versatile")
     def extract_jobs(self,cleaned_text):
         prompt_extract = PromptTemplate.from_template(
             """
